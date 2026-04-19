@@ -1,30 +1,30 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:tugas_mobile/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-   await tester.pumpWidget(MyApp());
+  testWidgets('Schedule App smoke test', (WidgetTester tester) async {
+    // Build app
+    await tester.pumpWidget(const MyApp()); // <-- pake const kalau MyApp() const
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // 1. Cek AppBar judulnya bener
+    expect(find.text('Jadwal Hari Ini'), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    // 2. Cek ada header tanggal
+    expect(find.text('Sabtu, 18 April 2026'), findsOneWidget);
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // 3. Cek ada tugas dari data dummy
+    expect(find.text('Buat Wireframe Flutter'), findsOneWidget);
+    expect(find.text('Laporan ERD Koperasi'), findsOneWidget);
+
+    // 4. Cek ada FAB "Tambah Tugas"
+    expect(find.text('Tambah Tugas'), findsOneWidget);
+
+    // 5. Tap icon centang pertama buat toggle selesai
+    await tester.tap(find.byIcon(Icons.circle_outlined).first);
+    await tester.pump(); // rebuild UI
+
+    // 6. Setelah di-tap harusnya muncul icon check_circle
+    expect(find.byIcon(Icons.check_circle), findsOneWidget);
   });
 }

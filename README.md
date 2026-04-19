@@ -1,31 +1,20 @@
-#  Flutter Wireframe Profile App
+# Schedule Mahasiswa App
 
-Aplikasi sederhana berbasis Flutter untuk menampilkan wireframe halaman profile mahasiswa.
+Aplikasi Flutter sederhana untuk mengelola tugas mahasiswa.
 
----
+## Fitur
 
-## Data Mahasiswa
-- Nama: Arinda
-- NIM: 240103184
-- Kelas: 24TIA6
+* Menampilkan daftar tugas
+* Status tugas (selesai / belum)
+* Detail tugas
+* Profil mahasiswa (nama + avatar)
+* Jumlah tugas belum selesai otomatis
+* baru beberapa tombol yang bisa di tekan
 
----
+## Struktur
 
-##  Fitur Aplikasi
-- Tampilan profile
-- Header dengan informasi mahasiswa
-- Highlight section berisi Projects & Contact
-- Grid menu meliputi Profile, Schedule, Gallery, Settings
+* `main.dart` → file utama
+* `Tugas` → model data
+* `HomeScreen` → halaman utama
+* `DetailScreen` → halaman detail
 
----
-
-## Teknologi
-- Flutter
-- Dart
-
----
-
-## Cara Menjalankan
-```bash
-flutter pub get
-flutter run
